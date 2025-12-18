@@ -59,7 +59,6 @@
 </template>
 
 <script setup lang="ts">
-import type AppHeaderVue from '~/components/AppHeader.vue';
 import { sidebarItems } from '~/constants/sidebar';
 
 </script>

@@ -18,10 +18,12 @@
     "axios": "^1.13.2",
     "nuxt": "^4.2.1",
     "nuxt-charts": "^2.0.0",
+    "ofetch": "^1.5.1",
     "pinia": "^3.0.4"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.10.0",
+    "@types/node": "^25.0.3",
     "eslint": "^9.39.1",
     "sass-embedded": "^1.96.0",
     "typescript": "^5.9.3",
