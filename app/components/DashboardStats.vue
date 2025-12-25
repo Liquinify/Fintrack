@@ -1,9 +1,50 @@
+<template>
+  <UPageGrid class="lg:grid-cols-4 gap-3 sm:gap-3 lg:gap-3">
+    <UPageCard
+      v-for="(stat, index) in stats"
+      :key="index"
+      :icon="stat.icon"
+      :title="stat.title"
+      variant="subtle"
+      :ui="{
+        container: 'gap-y-2',
+        wrapper: 'items-start justify-between',
+        leading: 'p-3 rounded-full bg-primary/10 ring-1 ring-inset ring-primary/30',
+        title: 'text-xs uppercase tracking-wide text-muted'
+      }"
+      class="
+        bg-linear-to-br from-black/40 to-black/50 backdrop-blur-sm
+        rounded-lg
+        hover:z-10
+        border border-white/10
+        relative overflow-hidden
+      "
+    >
+      <!-- Fade background effect -->
+      <div class="absolute inset-0 bg-linear-to-r from-white/0 via-white/5 to-white/0 pointer-events-none"></div>
+      
+      <div class="flex justify-between items-center gap-3 relative z-10">
+        <span class="text-2xl font-semibold text-foreground">
+          {{ stat.value }}
+        </span>
+
+        <UBadge
+          :color="stat.variation > 0 ? 'success' : 'error'"
+          variant="subtle"
+          size="xs"
+        >
+          {{ stat.variation > 0 ? '+' : '' }}{{ stat.variation }}%
+        </UBadge>
+      </div>
+    </UPageCard>
+  </UPageGrid>
+</template>
+
 <script setup lang="ts">
-import type { Period, Range, Stat } from '~/types/client-info';
 
 const props = defineProps<{
-  period: Period
-  range: Range
+  period: any
+  range: any
 }>()
 
 function formatCurrency(value: number): string {
@@ -15,21 +56,21 @@ function formatCurrency(value: number): string {
 }
 
 const baseStats = [{
-  title: 'Бюджет',
+  title: 'Загальний Бюджет',
   icon: 'i-lucide-users',
   minValue: 400,
   maxValue: 1000,
   minVariation: -15,
   maxVariation: 25
 }, {
-  title: 'Conversions',
+  title: 'Отримані гроші за місяць',
   icon: 'i-lucide-chart-pie',
   minValue: 1000,
   maxValue: 2000,
   minVariation: -10,
   maxVariation: 20
 }, {
-  title: 'Revenue',
+  title: 'Витрати за місяць',
   icon: 'i-lucide-circle-dollar-sign',
   minValue: 200000,
   maxValue: 500000,
@@ -49,7 +90,7 @@ function randomInt(min: number, max: number): number {
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
-const { data: stats } = await useAsyncData<Stat[]>('stats', async () => {
+const { data: stats } = await useAsyncData('stats', async () => {
   return baseStats.map((stat) => {
     const value = randomInt(stat.minValue, stat.maxValue)
     const variation = randomInt(stat.minVariation, stat.maxVariation)
@@ -67,35 +108,3 @@ const { data: stats } = await useAsyncData<Stat[]>('stats', async () => {
 })
 </script>
 
-<template>
-  <UPageGrid class="lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-px">
-    <UPageCard
-      v-for="(stat, index) in stats"
-      :key="index"
-      :icon="stat.icon"
-      :title="stat.title"
-      variant="subtle"
-      :ui="{
-        container: 'gap-y-1.5',
-        wrapper: 'items-start',
-        leading: 'p-2.5 rounded-full bg-primary/10 ring ring-inset ring-primary/25 flex-col',
-        title: 'font-normal text-muted text-xs uppercase'
-      }"
-      class="lg:rounded-none first:rounded-l-lg last:rounded-r-lg hover:z-1"
-    >
-      <div class="flex items-center gap-2">
-        <span class="text-2xl font-semibold text-highlighted">
-          {{ stat.value }}
-        </span>
-
-        <UBadge
-          :color="stat.variation > 0 ? 'success' : 'error'"
-          variant="subtle"
-          class="text-xs"
-        >
-          {{ stat.variation > 0 ? '+' : '' }}{{ stat.variation }}%
-        </UBadge>
-      </div>
-    </UPageCard>
-  </UPageGrid>
-</template>

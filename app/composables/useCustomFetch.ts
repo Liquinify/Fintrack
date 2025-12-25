@@ -3,6 +3,7 @@ export function useCustomFetch<T>(
   options: any = {}
 ) {
   const config = useRuntimeConfig()
+  // TODO: Take monobankToken from cookie instead of directly from runtime config
 
   return useFetch<T>(endpoint, {
     baseURL: config.public.monobankUrl,

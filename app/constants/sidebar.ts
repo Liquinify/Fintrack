@@ -5,14 +5,13 @@ export const sidebarItems: NavigationMenuItem[][] = [[{
   icon: 'i-lucide-house',
   active: true
 }, {
-  label: 'Inbox',
+  label: 'Accounts',
   icon: 'i-lucide-inbox',
-  badge: '4'
 }, {
-  label: 'Contacts',
+  label: 'Analytics',
   icon: 'i-lucide-users'
 }, {
-  label: 'Settings',
+  label: 'Goals',
   icon: 'i-lucide-settings',
   defaultOpen: true,
   children: [{

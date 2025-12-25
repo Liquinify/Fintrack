@@ -36,7 +36,4 @@ useSeoMeta({
 </template>
 
 <style scoped lang="scss"> 
-  .calc-footer {
-    margin-top: calc(100vh - 119px);
-  }
 </style>
