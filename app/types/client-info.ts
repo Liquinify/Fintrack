@@ -1,32 +1,32 @@
 export type ClientInfo = {
-    clientId: string,
-    name: string,
-    accounts: {
-        id: string
-        balance: number,
-        cashbackType: string
-        maskedPan: [string]
-        type: string
-    }[]
-}
+  clientId: string;
+  name: string;
+  accounts: {
+    id: string;
+    balance: number;
+    cashbackType: string;
+    maskedPan: [string];
+    type: string;
+  }[];
+};
 
 export type Transactions = {
-  id: string,
-  time: number,
-  description: string,
-  mcc: number,
-  originalMcc: number,
-  hold: number | null,
-  amount: number,
-  operationAmount: number,
-  currencyCode: number,
-  commissionRate: number | null,
-  cashbackAmount: number,
-  balance: number,
-  comment: string,
-  receiptId: string,
-  invoiceId: string,
-  counterEdrpou: string,
-  counterIban: string,
-  counterName: string
-}
+  id: string;
+  time: number;
+  description: string;
+  mcc: number;
+  originalMcc: number;
+  hold: number | null;
+  amount: number;
+  operationAmount: number;
+  currencyCode: number;
+  commissionRate: number | null;
+  cashbackAmount: number;
+  balance: number;
+  comment: string;
+  receiptId: string;
+  invoiceId: string;
+  counterEdrpou: string;
+  counterIban: string;
+  counterName: string;
+};

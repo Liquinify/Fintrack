@@ -13,13 +13,15 @@
   "dependencies": {
     "@iconify-json/lucide": "^1.2.74",
     "@iconify-json/simple-icons": "^1.2.59",
+    "@nuxt/fonts": "^0.12.1",
     "@nuxt/image": "2.0.0",
     "@nuxt/ui": "^4.2.1",
+    "@pinia/nuxt": "^0.11.3",
     "moment": "^2.30.1",
     "nuxt": "^4.2.1",
     "nuxt-charts": "^2.0.0",
-    "ofetch": "^1.5.1",
-    "pinia": "^3.0.4"
+    "pinia": "^3.0.4",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.10.0",

@@ -1,21 +1,24 @@
 <template>
-  <UHeader>
+  <UHeader class="border-none">
     <template #left>
-      <UDashboardSidebarCollapse /> 
+      <UDashboardSidebarCollapse />
     </template>
-
     <template #right>
+      <UModal title="Add a new account">
+        <UButton label="New" color="success" icon="i-lucide-plus" />
+        <template #body>
+          <AddAccount />
+        </template>
+      </UModal>
       <UColorModeButton />
-    </template>
-
-    <template #body>
-      <USeparator class="my-6" />
     </template>
   </UHeader>
 </template>
 
 <script setup lang="ts">
-const route = useRoute()
+import AddAccount from './modals/AddAccount.vue';
+
+const route = useRoute();
 
 // const items = computed(() => [{
 //   label: 'Docs',
@@ -32,4 +35,3 @@ const route = useRoute()
 //   to: '/changelog'
 // }])
 </script>
-

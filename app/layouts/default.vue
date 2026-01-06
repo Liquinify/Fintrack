@@ -1,17 +1,22 @@
 <template>
   <UDashboardGroup unit="rem">
-    <UDashboardSidebar 
-      collapsible 
-      resizable 
-      :ui="{ footer: 'border-t border-default' }"    
+    <UDashboardSidebar
+      collapsible
+      resizable
+      :ui="{ footer: 'border-t border-default' }"
       :toggle="{
-          color: 'primary',
-          variant: 'subtle',
-          class: 'rounded-full'
-      }">
+        color: 'primary',
+        variant: 'subtle',
+        class: 'rounded-full',
+      }"
+    >
       <template #header="{ collapsed }">
         <h1 v-if="!collapsed" class="h-5 w-auto shrink-0">Logo</h1>
-        <UIcon v-else name="i-simple-icons-nuxtdotjs" class="size-5 text-primary mx-auto" />
+        <UIcon
+          v-else
+          name="i-simple-icons-nuxtdotjs"
+          class="size-5 text-primary mx-auto"
+        />
       </template>
       <template #default="{ collapsed }">
         <UButton
@@ -34,17 +39,11 @@
           :items="sidebarItems[0]"
           orientation="vertical"
         />
-        <UNavigationMenu
-          :collapsed="collapsed"
-          :items="sidebarItems[1]"
-          orientation="vertical"
-          class="mt-auto"
-        />
       </template>
       <template #footer="{ collapsed }">
         <UButton
           :avatar="{
-            src: 'https://github.com/benjamincanac.png'
+            src: 'https://github.com/benjamincanac.png',
           }"
           :label="collapsed ? undefined : 'Benjamin'"
           color="neutral"
@@ -55,14 +54,11 @@
       </template>
     </UDashboardSidebar>
     <slot />
-  </UDashboardGroup> 
+  </UDashboardGroup>
 </template>
 
 <script setup lang="ts">
-import { sidebarItems } from '~/constants/sidebar';
-
+import { sidebarItems } from "~/constants/sidebar";
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
