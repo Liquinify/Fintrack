@@ -68,6 +68,7 @@
 import type { TabsItem } from '@nuxt/ui'
 import { ref } from 'vue'
 
+const emit = defineEmits<{ close: [boolean] }>()
 const cashStore = useAddMoneyStore()
 
 const newBalance = ref({
@@ -78,12 +79,15 @@ const newBalance = ref({
     isSavingsAccount: false
 })
 
-
 const tabs = ref<TabsItem[]>([
     { label: 'Income' },
     { label: 'Expense' }
 ])
 
+function handleAddBalance() {
+    cashStore.addNewBalance(newBalance.value)
+    emit('close', false)
+}
 
 </script>
 

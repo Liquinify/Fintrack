@@ -23,7 +23,7 @@
               Cash Accounts
             </h3>
             <div class="space-y-4" v-for="cash in cashStore.cashBalance" :key="cash.id">
-              <div class="flex justify-between items-start p-4">
+              <div class="flex justify-between items-start p-4 hover:opacity-80 transition-opacity hover:bg-gray-800/30">
                 <div class="flex-1">
                   <p class="text-sm mb-1">{{ cash.balanceName }}</p>
                   <p class="text-xs" v-if="cash.isSavingsAccount">Savings Account</p>

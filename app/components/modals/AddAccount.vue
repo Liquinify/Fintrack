@@ -41,27 +41,30 @@
       </div>
     </UButton>
 
-    <UModal title="Додати готівку">
-    <UButton 
-      class="flex flex-col items-center gap-3 p-6 cursor-pointer hover:opacity-80 transition-opacity bg-gray-800/30"
-    >
-      <div class="text-5xl">🏦</div>
-      <div class="text-center">
-        <h3 class="font-semibold text-white">Готівка</h3>
-        <p class="text-sm text-gray-400 mt-1">
-          Ручний облік
-        </p>
-      </div>
-    </UButton>
-    <template #body>
-      <AddCash />
-    </template>
+    <UModal title="Додати готівку" >
+      <UButton 
+        class="flex flex-col items-center gap-3 p-6 cursor-pointer hover:opacity-80 transition-opacity bg-gray-800/30"
+      >
+        <div class="text-5xl">🏦</div>
+        <div class="text-center">
+          <h3 class="font-semibold text-white">Готівка</h3>
+          <p class="text-sm text-gray-400 mt-1">
+            Ручний облік
+          </p>
+        </div>
+      </UButton>
+      <template #body>
+        <AddCash />
+      </template>
     </UModal>
   </div>
 </template>
 
 <script setup lang="ts">
 import AddCash from './AddCash.vue';
+
+const emit = defineEmits<{ close: [boolean] }>()
+
 
 
 const selectAccountType = (type: string) => {
