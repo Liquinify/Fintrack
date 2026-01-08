@@ -3,8 +3,8 @@ import type { NavigationMenuItem } from "@nuxt/ui";
 export const sidebarItems: NavigationMenuItem[][] = [
   [
     {
-      label: "Home",
-      icon: "i-lucide-house",
+      label: "Dashboard",
+      icon: "i-lucide-layout-dashboard",
       to: "/",
     },
     {
@@ -14,24 +14,29 @@ export const sidebarItems: NavigationMenuItem[][] = [
     },
     {
       label: "Transactions",
-      icon: "i-lucide-arrow-left-right",
+      icon: "i-lucide-wallet",
       to: "/transactions"
     },
     {
-      label: "Goals",
-      icon: "i-lucide-settings",
-      defaultOpen: true,
-      children: [
-        {
-          label: "General",
-        },
-        {
-          label: "Members",
-        },
-        {
-          label: "Notifications",
-        },
-      ],
-    },
+      label: "Budgeting",
+      icon: "i-lucide-circle-dollar-sign",
+      to: "/budgeting"
+    }
+    // {
+    //   label: "Goals",
+    //   icon: "i-lucide-settings",
+    //   defaultOpen: true,
+    //   children: [
+    //     {
+    //       label: "General",
+    //     },
+    //     {
+    //       label: "Members",
+    //     },
+    //     {
+    //       label: "Notifications",
+    //     },
+    //   ],
+    // },
   ],
 ];

@@ -1,6 +1,10 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
+* {
+  font-family: 'Mulish', sans-serif;
+}
+
 @theme static {
   --font-display: "General-sans", sans-serif;
 

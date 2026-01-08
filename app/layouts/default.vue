@@ -11,33 +11,20 @@
       }"
     >
       <template #header="{ collapsed }">
-        <h1 v-if="!collapsed" class="h-5 w-auto shrink-0">Logo</h1>
-        <UIcon
-          v-else
-          name="i-simple-icons-nuxtdotjs"
-          class="size-5 text-primary mx-auto"
-        />
+        <div v-if="!collapsed" class="flex justify-start items-center">
+          <NuxtImg src="../assets/images/logo.png" width="150" height="25" alt="logo"/>
+          <h1>Fintrack</h1>
+        </div>
+        <img v-else src="../assets/images/logo.svg" alt="Fintrack Logo" class="size-12 text-primary mx-auto" />
       </template>
       <template #default="{ collapsed }">
-        <UButton
-          :label="collapsed ? undefined : 'Search...'"
-          icon="i-lucide-search"
-          color="neutral"
-          variant="outline"
-          block
-          :square="collapsed"
-        >
-          <template v-if="!collapsed" #trailing>
-            <div class="flex items-center gap-0.5 ms-auto">
-              <UKbd value="meta" variant="subtle" />
-              <UKbd value="K" variant="subtle" />
-            </div>
-          </template>
-        </UButton>
         <UNavigationMenu
           :collapsed="collapsed"
           :items="sidebarItems[0]"
           orientation="vertical"
+          :ui="{
+            link: 'mt-2 h-11'
+          }"
         />
       </template>
       <template #footer="{ collapsed }">
