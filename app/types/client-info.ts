@@ -30,3 +30,12 @@ export type Transactions = {
   counterIban: string;
   counterName: string;
 };
+
+export type CashBalances = {
+  id?: string,
+  balanceName: string,
+  balance: number,
+  currency: string,
+  isInBalance: boolean,
+  isSavingsAccount: boolean
+}

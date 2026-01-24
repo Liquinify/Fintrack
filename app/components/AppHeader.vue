@@ -1,5 +1,5 @@
 <template>
-  <UHeader class="border-none">
+  <UHeader class="border-none position-relative">
     <template #left>
       <UDashboardSidebarCollapse />
     </template>

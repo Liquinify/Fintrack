@@ -1,10 +1,5 @@
 <template>
     <div class="space-y-6">
-        <!-- <UTabs
-            :items="tabs"
-            class="w-full"
-            :content="false"
-        /> -->
         <UFormField label="Account Name">
             <UInput
                 v-model="newBalance.balanceName"
@@ -32,7 +27,6 @@
                 />
             </UFormField> -->
         </div>
-        <!-- Toggles -->
         <div class="space-y-4">
             <div class="flex items-start space-x-3 pb-4 border-b border-gray-700">
                 <UCheckbox v-model="newBalance.isInBalance" />
@@ -65,32 +59,17 @@
 </template>
 
 <script setup lang="ts">
-import type { TabsItem } from '@nuxt/ui'
 import { ref } from 'vue'
 
 const emit = defineEmits<{ close: [boolean] }>()
-const cashStore = useAddMoneyStore()
+const cashStore = useCashBalanceStore()
 
 const newBalance = ref({
     balanceName: '',
     balance: 0,
-    currence: 'USD',
+    currency: 'USD',
     isInBalance: false,
     isSavingsAccount: false
 })
 
-const tabs = ref<TabsItem[]>([
-    { label: 'Income' },
-    { label: 'Expense' }
-])
-
-function handleAddBalance() {
-    cashStore.addNewBalance(newBalance.value)
-    emit('close', false)
-}
-
 </script>
-
-<style lang="scss" scoped>
-
-</style>
