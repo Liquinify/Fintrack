@@ -62,7 +62,7 @@
 import { ref } from 'vue'
 
 const emit = defineEmits<{ close: [boolean] }>()
-const cashStore = useCashBalanceStore()
+const cashStore = useCashStore()
 
 const newBalance = ref({
     balanceName: '',

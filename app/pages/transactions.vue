@@ -49,7 +49,7 @@
 import type { TableColumn } from '@nuxt/ui';
 import moment from 'moment';
 import { ref } from 'vue';
-import type { Transactions } from '~/types/client-info';
+import type { Transactions } from '~/types/types';
 
 const prevMonth = moment().subtract(31, 'days').unix();
 const {userTransactions} = useTransactions(prevMonth)

@@ -38,10 +38,10 @@
 
 <script setup lang="ts">
 import CreditCard from '~/components/credit-cards/CreditCard.vue';
-import { useCashBalanceStore } from '@/stores/cash-balance';
+import { useCashStore } from '~/stores/cash';
 import CashBalances from '~/components/CashBalances.vue';
 
 const { clientData } = useClientInfo();
-const cashStore = useCashBalanceStore();
+const cashStore = useCashStore();
 </script>
 

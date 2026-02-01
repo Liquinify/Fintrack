@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
-import type { CashBalances } from '~/types/client-info';
+import type { CashBalances } from '~/types/types';
 
 
-export const useCashBalanceStore = defineStore('add-money', () => {
+export const useCashStore = defineStore('cash', () => {
     const cashBalance = ref<CashBalances[]>([])
     
     function addNewBalance(balance: CashBalances) {

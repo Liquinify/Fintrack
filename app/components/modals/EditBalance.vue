@@ -58,7 +58,7 @@
 </template>
 
 <script setup lang="ts">
-import type { CashBalances } from '~/types/client-info';
+import type { CashBalances } from '~/types/types';
 
 defineProps<{
   cash: CashBalances

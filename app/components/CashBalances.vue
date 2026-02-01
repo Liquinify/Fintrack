@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import type { CashBalances } from '~/types/client-info';
+import type { CashBalances } from '~/types/types';
 import EditBalance from './modals/EditBalance.vue';
 
 defineProps<{

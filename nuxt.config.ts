@@ -25,8 +25,9 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      monobankToken: process.env.NUXT_API_TOKEN,
-      monobankUrl: process.env.NUXT_API_URL,
+      monobankToken: process.env.NUXT_MONOBANK_TOKEN,
+      monobankUrl: process.env.NUXT_MONOBANK_URL,
+      infuraToken: process.env.NUXT_INFURA_TOKEN
     },
   },
 });

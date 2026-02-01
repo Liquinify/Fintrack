@@ -1,4 +1,4 @@
-import { type Transactions } from "~/types/client-info";
+import { type Transactions } from "~/types/types";
 
 export function useTransactions(from: number) {
   const {

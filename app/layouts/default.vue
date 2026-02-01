@@ -12,10 +12,9 @@
     >
       <template #header="{ collapsed }">
         <div v-if="!collapsed" class="flex justify-start items-center">
-          <NuxtImg src="../assets/images/logo.png" width="150" height="25" alt="logo"/>
           <h1>Fintrack</h1>
         </div>
-        <img v-else src="../assets/images/logo.svg" alt="Fintrack Logo" class="size-12 text-primary mx-auto" />
+        <h1 v-else>Fin</h1>
       </template>
       <template #default="{ collapsed }">
         <UNavigationMenu
@@ -27,7 +26,7 @@
           }"
         />
       </template>
-      <template #footer="{ collapsed }">
+      <!-- <template #footer="{ collapsed }">
         <UButton
           :avatar="{
             src: 'https://github.com/benjamincanac.png',
@@ -38,7 +37,7 @@
           class="w-full h-12"
           :block="collapsed"
         />
-      </template>
+      </template> -->
     </UDashboardSidebar>
     <slot />
   </UDashboardGroup>

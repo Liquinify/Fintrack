@@ -1,4 +1,4 @@
-import { type ClientInfo } from "~/types/client-info";
+import { type ClientInfo } from "~/types/types";
 
 export function useClientInfo() {
   const {
