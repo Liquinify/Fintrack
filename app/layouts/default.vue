@@ -22,7 +22,7 @@
           :items="sidebarItems[0]"
           orientation="vertical"
           :ui="{
-            link: 'mt-2 h-11'
+            link: 'mt-2 h-11',
           }"
         />
       </template>

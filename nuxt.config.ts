@@ -1,6 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxt/eslint", "@nuxt/ui", "nuxt-charts", "@nuxt/fonts", "@pinia/nuxt", "@nuxt/image"],
+  modules: [
+    "@nuxt/eslint",
+    "@nuxt/ui",
+    "nuxt-charts",
+    "@nuxt/fonts",
+    "@pinia/nuxt",
+    "@nuxt/image",
+  ],
 
   devtools: {
     enabled: true,
@@ -27,7 +34,7 @@ export default defineNuxtConfig({
     public: {
       monobankToken: process.env.NUXT_MONOBANK_TOKEN,
       monobankUrl: process.env.NUXT_MONOBANK_URL,
-      infuraToken: process.env.NUXT_INFURA_TOKEN
+      infuraToken: process.env.NUXT_INFURA_TOKEN,
     },
   },
 });

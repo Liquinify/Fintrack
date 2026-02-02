@@ -2,7 +2,7 @@
 @import "@nuxt/ui";
 
 * {
-  font-family: 'Mulish', sans-serif;
+  font-family: "Mulish", sans-serif;
 }
 
 @theme static {

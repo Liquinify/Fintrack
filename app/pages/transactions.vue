@@ -1,83 +1,48 @@
 <template>
-    <UDashboardPanel>
-      <template #header>
-        <AppHeader />
-        </template>
-        <template #body>
-            <main class="space-y-4">
-                <!-- Filter Bar -->
-                <div class="flex items-center justify-between gap-4 border rounded-2xl p-6">
-                    <UTabs 
-                        :items="tabs" 
-                        :default-index="activeTab"
-                        @change="activeTab = $event"
-                    />
-                    <div class="flex items-center gap-3">
-                        <UPopover :popper="{ placement: 'bottom-start' }">
-                            <UButton 
-                                icon="i-heroicons-calendar"
-                                variant="ghost"
-                                :trailing="true"
-                            >
-                                {{ selectedMonth }}
-                            </UButton>
-                        </UPopover>
-                        <UButton 
-                            icon="i-heroicons-funnel"
-                            variant="ghost"
-                            @click="showFilters = !showFilters"
-                        >
-                            Filters
-                        </UButton>
-                        <UButton 
-                            icon="i-heroicons-arrow-down-tray"
-                            variant="ghost"
-                            @click="exportData"
-                        >
-                            Export
-                        </UButton>
-                    </div>
-                </div>
-                <!-- Table -->
-                <UTable :data="userTransactions" :columns="transactionColumns" />
-            </main>
-        </template>
-    </UDashboardPanel>
+  <UDashboardPanel>
+    <template #header>
+      <AppHeader />
+    </template>
+    <template #body>
+      <main class="space-y-4">
+        <UCard class="dark:bg-[#16171D]">
+          <UTable
+            ref="table"
+            :data="userTransactions"
+            :columns="transactionColumns"
+            v-model:pagination="pagination"
+            :pagination-options="{
+              getPaginationRowModel: getPaginationRowModel(),
+            }"
+          />
+        </UCard>
+        <div class="flex justify-end pt-4 px-4">
+          <UPagination
+            :page="(table?.tableApi?.getState().pagination.pageIndex || 0) + 1"
+            :items-per-page="table?.tableApi?.getState().pagination.pageSize"
+            :total="table?.tableApi?.getFilteredRowModel().rows.length"
+            @update:page="(p) => table?.tableApi?.setPageIndex(p - 1)"
+          />
+        </div>
+      </main>
+    </template>
+  </UDashboardPanel>
 </template>
 
 <script setup lang="ts">
-import type { TableColumn } from '@nuxt/ui';
-import moment from 'moment';
-import { ref } from 'vue';
-import type { Transactions } from '~/types/types';
+import moment from "moment";
+import { getPaginationRowModel } from "@tanstack/vue-table";
+import { transactionColumns } from "~/constants/transaction-columns";
 
-const prevMonth = moment().subtract(31, 'days').unix();
-const {userTransactions} = useTransactions(prevMonth)
+const table = useTemplateRef("table");
 
-const activeTab = ref(0)
-const showFilters = ref(false)
-const selectedMonth = ref('This Month')
+const pagination = ref({
+  pageIndex: 0,
+  pageSize: 8,
+});
 
-const tabs = [
-    { label: 'All Transactions' },
-    { label: 'Income' },
-    { label: 'Expense' },
-    { label: 'Pending' }
-]
-
-const transactionColumns: TableColumn<Transactions>[] = [
-    {accessorKey: 'description', header: 'Description'},
-    {accessorKey: 'amount', header: 'Amount'},
-    {accessorKey: 'time', header: 'Date'},
-    {id: 'action'}
-]
-    
-const exportData = () => {
-    console.log('Export data');
-    // TODO: Implement export functionality
-}
+const prevMonthState = useState("prevMonth", () =>
+  moment().subtract(31, "days").unix(),
+);
+const { userTransactions } = useTransactions(prevMonthState.value);
 </script>
-
-<style lang="scss" scoped>
-
-</style>

@@ -1,3 +1,1 @@
-export const useMetamaskStore  = defineStore('metamask', () => {
-
-})
+export const useMetamaskStore = defineStore("metamask", () => {});

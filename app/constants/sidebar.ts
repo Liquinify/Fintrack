@@ -15,13 +15,13 @@ export const sidebarItems: NavigationMenuItem[][] = [
     {
       label: "Transactions",
       icon: "i-lucide-wallet",
-      to: "/transactions"
+      to: "/transactions",
     },
     {
       label: "Budgeting",
       icon: "i-lucide-circle-dollar-sign",
-      to: "/budgeting"
-    }
+      to: "/budgeting",
+    },
     // {
     //   label: "Goals",
     //   icon: "i-lucide-settings",

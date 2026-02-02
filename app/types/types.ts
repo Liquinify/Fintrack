@@ -32,10 +32,10 @@ export type Transactions = {
 };
 
 export type CashBalances = {
-  id?: string,
-  balanceName: string,
-  balance: number,
-  currency: string,
-  isInBalance: boolean,
-  isSavingsAccount: boolean
-}
+  id?: string;
+  balanceName: string;
+  balance: number;
+  currency: string;
+  isInBalance: boolean;
+  isSavingsAccount: boolean;
+};
